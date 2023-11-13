@@ -1,6 +1,4 @@
-﻿//using System.Runtime.Intrinsics.Arm;
-
-Console.WriteLine("Домашняя работа №1");
+﻿Console.WriteLine("Домашняя работа №1");
 Console.WriteLine("");
 Console.WriteLine("----------------------");
 Console.WriteLine("Задание 1. Рассчитать и вывести на экран площадь и периметр прямоугольника,");
@@ -30,7 +28,7 @@ userNumber = Convert.ToInt32(Console.ReadLine());
 
 for (int i = 1; i <= userNumber; i++)
 {
-    sum = sum + i;
+    sum += i;
 }
 
 Console.WriteLine($"Сумма чисел равна {sum}");
@@ -53,65 +51,160 @@ Console.WriteLine("----------------------");
 
 Console.WriteLine("Задание 4. ");
 int amountTotal = 45;
-Console.WriteLine($"На складе доступно {amountTotal} ящиков. Сколько ящиков нужно отгрузить?");
-int numbersInCar = 0;
+Console.WriteLine($"На складе {GetCorrectSuffixOfAvailable(amountTotal)} {amountTotal} {GetCorrectSuffixOfBoxCount(amountTotal)}. Сколько ящиков нужно отгрузить?");
+int numbersInCar;
 
 
-/*
- * Добавить метод для определения корректного суффикса для количества ящиков
- * string boxCorrectCounterSuffix = "ящик";
- */
 while (amountTotal > 0)
 {
     numbersInCar = Convert.ToInt32(Console.ReadLine());
 
     if ((amountTotal - numbersInCar) > 0)
     {
-        amountTotal = amountTotal - numbersInCar;
-        Console.WriteLine($"На складе доступно {amountTotal} {GetCorrectSuffixOfBoxCount(amountTotal)}. Сколько ящиков нужно отгрузить?");
+        amountTotal -= numbersInCar;
+        Console.WriteLine($"На складе {GetCorrectSuffixOfAvailable(amountTotal)} {amountTotal} {GetCorrectSuffixOfBoxCount(amountTotal)}. Сколько ящиков нужно отгрузить?");
     }
 
     else if ((amountTotal - numbersInCar) == 0)
 
     {
-        amountTotal = amountTotal - numbersInCar;
-        Console.WriteLine($"Отгружено {numbersInCar} {GetCorrectSuffixOfBoxCount(amountTotal)}. На складе не осталось яблок!");
+        amountTotal -= numbersInCar;
+        Console.WriteLine($"{GetCorrectSuffixOfShipped(amountTotal)} {numbersInCar} {GetCorrectSuffixOfBoxCount(amountTotal)}. На складе не осталось яблок!");
     }
 
     else if ((amountTotal - numbersInCar) < 0)
 
     {
-        Console.WriteLine($"Отгружено только {amountTotal} {GetCorrectSuffixOfBoxCount(amountTotal)}. На складе не осталось яблок!");
+        Console.WriteLine($"{GetCorrectSuffixOfShipped(amountTotal)} только {amountTotal} {GetCorrectSuffixOfBoxCount(amountTotal)}. На складе не осталось яблок!");
         amountTotal = 0;
     }
 }
 
-string GetCorrectSuffixOfBoxCount(int Count)
+return;
+
+
+/*
+ * Локальная функция для корректного окончания доступных ящиков в зависимости от количества
+ */
+static string GetCorrectSuffixOfAvailable(int count)
 {
-    if (Count == 1 || Count % 10 == 1)
+    if (count == 1)
+    {
+        return "доступен";
+    }
+
+    else if (count >= 2 & count <= 4)
+    {
+        return "доступны";
+    }
+
+    else if (count >= 5 & count <= 20)
+    {
+        return "доступны";
+    }
+
+    else if (count > 20 & count % 10 == 1)
+    {
+        return "доступен";
+    }
+
+    else if (count > 20 & count % 10 >= 2 & count % 10 <= 4)
+    {
+        return "доступны";
+    }
+
+    else if (count > 20 & count % 10 >= 5 & count % 10 <= 9)
+    {
+        return "доступно";
+    }
+
+    else
+    {
+        return "доступно";
+    }
+
+}
+
+/*
+ * Локальная функция для корректного окончания отгружено в зависимости от количества ящиков
+ */
+static string GetCorrectSuffixOfShipped(int count)
+{
+    if (count == 1)
+    {
+        return "Отгружен";
+    }
+
+    else if (count >= 2 & count <= 4)
+    {
+        return "Отгружены";
+    }
+
+    else if (count >= 5 & count <= 20)
+    {
+        return "Отгружено";
+    }
+
+    else if (count > 20 & count % 10 == 1)
+    {
+        return "Отгружен";
+    }
+
+    else if (count > 20 & count % 10 >= 2 & count % 10 <= 4)
+    {
+        return "Отгружены";
+    }
+
+    else if (count > 20 & count % 10 >= 5 & count % 10 <= 9)
+    {
+        return "Отгружено";
+    }
+
+    else
+    {
+        return "Отгружено";
+    }
+
+}
+
+/*
+ * Локальная функция для корректного окончания в зависимости от количества ящиков
+ */
+static string GetCorrectSuffixOfBoxCount(int сount)
+{
+    if (сount == 1)
     {
         return "ящик";
     }
 
-    else if ((Count >= 2 & Count <= 4))
+    else if (сount >= 2 & сount <= 4)
     {
         return "ящика";
     }
 
-    else if (Count % 10 >= 2 & Count % 10 <= 4)
+    else if (сount >= 5 & сount <= 20)
+    {
+        return "ящиков";
+    }
+
+    else if (сount > 20 & сount % 10 == 1)
+    {
+        return "ящик";
+    }
+
+    else if (сount > 20 & сount % 10 >= 2 & сount % 10 <= 4)
     {
         return "ящика";
     }
 
-    else if (Count >= 5 & Count <= 20)
+    else if (сount > 20 & сount % 10 >= 5 & сount % 10 <= 9)
     {
         return "ящиков";
     }
 
-    else if (Count % 10 >= 5 & Count % 10 <= 9)
+    else
     {
         return "ящиков";
     }
 
-    return "ящиков";
 }
