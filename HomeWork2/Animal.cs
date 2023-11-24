@@ -8,7 +8,7 @@
 
         private string _name = "";
         private int _health = 100;
-        private int _age = 0;
+        private readonly int _age = 0;
 
         public Animal(int age) { _age = age; }
 
@@ -30,7 +30,7 @@
             {
                 if (this._health <= 50)
                 {
-                    return ConsoleColor.White;
+                    return ConsoleColor.Red;
                 }
 
                 else
