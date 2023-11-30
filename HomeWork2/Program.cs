@@ -7,30 +7,30 @@ namespace HomeWork2
         static void Main(string[] args)
         {
 
-            int ChoosedAnimal = 1;
-            int AnimalAge = 0;
-            string AnimalName = "";
+            int сhoosedAnimal = 1;
+            int animalAge = 0;
+            string animalName = "";
 
 
             Console.WriteLine("Добро пожаловать в магазин животных! Какое животное Вы хотите приобрести:");
             Console.WriteLine("(1) - кошку");
             Console.WriteLine("(2) - собаку");
 
-            ChoosedAnimal = Convert.ToInt16(Console.ReadLine());
+            сhoosedAnimal = Convert.ToInt16(Console.ReadLine());
             
             Console.WriteLine("Какого возраста?");
             
-            AnimalAge = Convert.ToInt16(Console.ReadLine());
+            animalAge = Convert.ToInt16(Console.ReadLine());
             
             Console.WriteLine("Как Вы планируете назвать питомца?");
             
-            AnimalName = Console.ReadLine();        
+            animalName = Console.ReadLine();        
 
-            if (ChoosedAnimal == 1)
+            if (сhoosedAnimal == 1)
             {
-                Cat animal = new(AnimalAge);
+                Cat animal = new(animalAge);
 
-                animal.Name = AnimalName;
+                animal.Name = animalName;
 
                 AnimalCare(animal);
 
@@ -43,9 +43,9 @@ namespace HomeWork2
 
             else
             {
-                Dog animal = new(AnimalAge);
+                Dog animal = new(animalAge);
 
-                animal.Name = AnimalName;
+                animal.Name = animalName;
 
                 AnimalCare(animal);
 
