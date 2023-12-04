@@ -10,8 +10,6 @@
         private int _health = 100;
         private readonly int _age = 0;
 
-        public Animal(int age) { _age = age; }
-
         public int Age { get { return _age; } }
 
         public int Health
@@ -40,6 +38,9 @@
 
             }
         }
+
+        public Animal(int age) { _age = age; }
+
         public abstract void Say();
 
         public void Feed(int foodCount)
