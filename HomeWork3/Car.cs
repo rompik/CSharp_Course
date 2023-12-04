@@ -2,8 +2,15 @@
 {
     public class Car
     {
-        public int Number { get; set; }
-        public Engine Engine { get; set; }
-        public Car() { }
+        static int number;
+        public int Number { get; }
+        public Engine Engine { get; }
+        public Car()
+        {
+            Engine = new Engine();
+            number++;
+            this.Number = number;
+        }
     }
 }
+
