@@ -6,9 +6,23 @@
     public abstract class Animal
     {
 
-        private string _name = "";
+        #region constructor
+        #endregion
+
+        #region fields
+        private string? _name = string.Empty;
         private int _health = 100;
         private readonly int _age = 0;
+        #endregion
+
+        #region property
+
+        #endregion
+
+
+        #region methods
+        #endregion
+
 
         public int Age { get { return _age; } }
 
@@ -16,26 +30,25 @@
         {
             get { return _health; }
         }
-        public string Name
+        public string? Name
         {
             get { return _name; }
             set { if (String.IsNullOrEmpty(_name)) { _name = value; } }
         }
 
-        public ConsoleColor Color
+        public string Color
         {
             get
             {
                 if (this._health <= 50)
                 {
-                    return ConsoleColor.Red;
+                    return "Red";
                 }
 
                 else
                 {
-                    return ConsoleColor.Green;
+                    return "Green";
                 }
-
             }
         }
 

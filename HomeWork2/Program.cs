@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace HomeWork2
+﻿namespace HomeWork2
 {
     internal class Program
     {
@@ -17,14 +15,14 @@ namespace HomeWork2
             Console.WriteLine("(2) - собаку");
 
             сhoosedAnimal = Convert.ToInt16(Console.ReadLine());
-            
+
             Console.WriteLine("Какого возраста?");
-            
+
             animalAge = Convert.ToInt16(Console.ReadLine());
-            
+
             Console.WriteLine("Как Вы планируете назвать питомца?");
-            
-            animalName = Console.ReadLine();        
+
+            animalName = Console.ReadLine();
 
             if (сhoosedAnimal == 1)
             {
@@ -83,7 +81,7 @@ namespace HomeWork2
                     }
 
                     Console.Write("Текущий уровень здоровья - ");
-                    Console.ForegroundColor = animal.Color;
+                    Console.ForegroundColor = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), animal.Color);
                     Console.WriteLine($"{animal.Health}");
 
                 }
