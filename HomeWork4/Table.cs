@@ -1,6 +1,7 @@
 ﻿namespace HomeWork4
 {
-    internal class Table
+    public class Table
     {
+
     }
 }
