@@ -17,6 +17,7 @@ namespace FireStation
             
             city.Add(new Building( Area.Center ));
 
+            Console.WriteLine( "Fire in the City!!!" );
             city.StartFire();
         }
     }
