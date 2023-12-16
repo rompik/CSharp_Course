@@ -48,7 +48,7 @@
             }
 
             Console.WriteLine("");
-            Console.WriteLine($"Остась машин {factory.Cars.Count}");
+            Console.WriteLine($"Осталось машин {factory.Cars.Count}");
         }
     }
 }
