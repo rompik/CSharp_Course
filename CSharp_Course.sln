@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork4", "HomeWork4\Home
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FireStation", "FireStation\FireStation.csproj", "{42013CC8-BD4C-4845-AA04-D5CE677B7603}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reflection", "Reflection\Reflection.csproj", "{73D4BB44-A0C4-4EED-856E-97014EFDC4B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reflection", "Reflection\Reflection.csproj", "{73D4BB44-A0C4-4EED-856E-97014EFDC4B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repositories\Repository.csproj", "{C920B16F-ECB0-4307-8E07-E8C65D3D8A45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +50,10 @@ Global
 		{73D4BB44-A0C4-4EED-856E-97014EFDC4B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73D4BB44-A0C4-4EED-856E-97014EFDC4B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73D4BB44-A0C4-4EED-856E-97014EFDC4B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C920B16F-ECB0-4307-8E07-E8C65D3D8A45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C920B16F-ECB0-4307-8E07-E8C65D3D8A45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C920B16F-ECB0-4307-8E07-E8C65D3D8A45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C920B16F-ECB0-4307-8E07-E8C65D3D8A45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
