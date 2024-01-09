@@ -1,4 +1,4 @@
-﻿namespace HomeWork4
+﻿namespace HomeWork4.Core
 {
     public interface IAlive
     {
