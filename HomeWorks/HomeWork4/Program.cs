@@ -1,44 +1,48 @@
-﻿using HomeWork4.Animals;
-using HomeWork4.Office;
+﻿using HomeWork4;
+using HomeWork4.Animals;
+using HomeWork4.Core;
+using HomeWork4.Staff;
 
-namespace HomeWork4
+
+Monkey animal1 = new Monkey { };
+Rabbit animal2 = new Rabbit { };
+Tiger animal3 = new Tiger { };
+Wolf animal4 = new Wolf { };
+Wolf animal5 = new Wolf { };
+
+Zoo zoo = new Zoo();
+Manager manager = new Manager();
+
+zoo.Animals.CollectionChanged += zoo.Animals_CollectionChanged;
+
+void DisplayMessage(Animal sender, AnimalEventArgs e)
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
+    Console.WriteLine($"{sender.Number} - {sender.GetType().Name} - {sender.Health}% - {e.Message}");
+}
 
-            Random rnd = new Random();
+zoo.Add(animal1);
+animal1.Notify += new Animal.HungryHandler(DisplayMessage);
+animal1.Notify += DisplayMessage;
 
-            Tiger item1 = new Tiger();
-            Table item2 = new Table();
-            Rabbit item3 = new Rabbit();
-            Monkey item4 = new Monkey();
-            Wolf item5 = new Wolf();
-            Table item6 = new Table();
-            Rabbit item7 = new Rabbit();
-            Table item8 = new Table();
-            Monkey item9 = new Monkey();
-            Table item10 = new Table();
-            Computer item11 = new Computer();
+zoo.Add(animal2);
+animal2.Notify += new Animal.HungryHandler(DisplayMessage);
+animal2.Notify += DisplayMessage;
 
-            Zoo zoo = new Zoo();
-            zoo.Register(item1);
-            zoo.Register(item2);
-            zoo.Register(item3);
-            zoo.Register(item4);
-            zoo.Register(item5);
-            zoo.Register(item6);
-            zoo.Register(item7);
-            zoo.Register(item8);
-            zoo.Register(item9);
-            zoo.Register(item10);
-            zoo.Register(item11);
+zoo.Add(animal3);
+animal3.Notify += new Animal.HungryHandler(DisplayMessage);
+animal3.Notify += DisplayMessage;
 
-            Console.WriteLine("Система управления зоопарком");
+zoo.Add(animal4);
+animal4.Notify += new Animal.HungryHandler(DisplayMessage);
+animal4.Notify += DisplayMessage;
 
-            zoo.PrintInventoryList();
+zoo.Add(animal5);
+animal5.Notify += new Animal.HungryHandler(DisplayMessage);
+animal5.Notify += DisplayMessage;
 
-        }
-    }
+Console.WriteLine($"---------------------------");
+Console.WriteLine($"Number - Animal - Health, %");
+foreach (Animal animal in zoo.Animals)
+{
+    animal.IsHungry();
 }

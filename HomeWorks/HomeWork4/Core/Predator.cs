@@ -2,14 +2,11 @@
 {
     public class Predator : Animal
     {
-        public string Meals { get; set; }
+        public override string Meals { get; set; }
 
         public Predator()
         {
-            this.Meals = "Мясо";
+            this.Meals = "мясо";
         }
-
-
-
     }
 }

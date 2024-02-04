@@ -1,91 +1,52 @@
 ﻿using HomeWork4.Core;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 
 namespace HomeWork4
 {
     public class Zoo
     {
+        public ObservableCollection<Animal> Animals = new ObservableCollection<Animal>();
 
-        //Инвентарный список животных
-        private List<Predator> list_of_predators = new List<Predator>();
-        private List<Herbo> list_of_herbos = new List<Herbo>();
-
-        //Инвентарный список офисных вещей
-        private List<Thing> list_of_things = new List<Thing>();
-
-        //Метод регистрации нового элемента
-        public void Register(IInventory element)
+        public void Animals_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
         {
-            //   Console.WriteLine($"tests {element.GetType().FullName}");
-            //Проверяем тип элемента и решаем в какой список его закинуть
-            switch (element.GetType().BaseType.Name)
+            switch (e.Action)
             {
-                case "Herbo":
-                    list_of_herbos.Add((Herbo)element);
+                case NotifyCollectionChangedAction.Add:
+                    if (e.NewItems?[0] is Animal newAnimal)
+                    {
+                        Console.WriteLine($"Новое животное принято.");
+                    }
                     break;
-                case "Predator":
-                    list_of_predators.Add((Predator)element);
-                    break;
-                case "Thing":
-                    list_of_things.Add((Thing)element);
+
+                case NotifyCollectionChangedAction.Remove:
+                    if (e.NewItems?[0] is Animal oldAnimal)
+                    {
+                        Console.WriteLine($"Животное передали в другой зоопарк - {oldAnimal.GetType().Name}.");
+                    }
                     break;
             }
         }
 
-        public void Unregister(IInventory element)
+        public void Add(Animal animal)
         {
-            switch (element.GetType().BaseType.Name)
+
+            if (animal.Health <= 50)
             {
-                case "Herbo":
-                    list_of_herbos.Remove((Herbo)element);
-                    break;
-                case "Predator":
-                    list_of_predators.Remove((Predator)element);
-                    break;
-                case "Thing":
-                    list_of_things.Remove((Thing)element);
-                    break;
+                Console.WriteLine($"Привезли новое животное - {animal.GetType().Name}. Ветклиника: животное не принято, оно больное.");
+            }
+
+            else
+            {
+                Console.WriteLine($"Привезли новое животное - {animal.GetType().Name}. Ветклиника: животное принято, оно здоровое.");
+                Animals.Add(animal);
             }
         }
 
-        public void PrintInventoryList()
+        public void Remove(Animal animal)
         {
-            int index = 1;
-            Console.WriteLine("Инвентарный список зоопарка");
-            Console.WriteLine("");
-            Console.WriteLine("------------------------------------");
-            Console.WriteLine("| Травоядные животные              |");
-            Console.WriteLine("------------------------------------");
-            Console.WriteLine("№ - Тип - Здоровье - Доброта");
-
-            foreach (Herbo item in list_of_herbos)
-            {
-                Console.WriteLine($"{index} - {item.GetType().Name} - {item.Health} - {item.Kindness}");
-                index = index + 1;
-            }
-
-            Console.WriteLine("------------------------------------");
-            Console.WriteLine("Хищные животные                    |");
-            Console.WriteLine("------------------------------------");
-            Console.WriteLine("№ - Тип - Здоровье - Еда");
-
-            foreach (Predator item in list_of_predators)
-            {
-                Console.WriteLine($"{index} - {item.GetType().Name} - {item.Health} - {item.Meals}");
-                index = index + 1;
-            }
-
-            Console.WriteLine("------------------------------------");
-            Console.WriteLine("Оборудование                       |");
-            Console.WriteLine("------------------------------------");
-            Console.WriteLine("№ - Тип");
-
-            foreach (Thing item in list_of_things)
-            {
-                Console.WriteLine($"{index} - {item.GetType().Name}");
-                index = index + 1;
-            }
-
-
+            Animals.Remove(animal);
+            Console.WriteLine("Животное переведено в другой зоопарк.");
         }
     }
 }
