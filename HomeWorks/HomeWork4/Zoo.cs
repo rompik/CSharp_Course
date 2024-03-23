@@ -6,7 +6,7 @@ namespace HomeWork4
 {
     public class Zoo
     {
-        public ObservableCollection<Animal> Animals = new ObservableCollection<Animal>();
+        private ObservableCollection<Animal> Animals = new ObservableCollection<Animal>();
 
         public void Animals_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
         {
