@@ -83,9 +83,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharedLibrary\SharedLibrary.csproj">
+    <ProjectReference Include="..\SharedLibrary\23_WCF_Data_Transfer_Object.SharedLibrary.csproj">
       <Project>{2DA3B7B6-7F8C-407C-8AAE-5F19312D5BE6}</Project>
-      <Name>SharedLibrary</Name>
+      <Name>23_WCF_Data_Transfer_Object.SharedLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
