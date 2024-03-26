@@ -52,9 +52,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "23_WCF_Data_Transfer_Object.Server", "Lessons\23_WCF_DataTransferObject\Server\23_WCF_Data_Transfer_Object.Server.csproj", "{FA6B4F1B-562C-42E4-9891-07FE3506BC63}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "23_WCF_Data_Transfer_Object.Client", "Lessons\23_WCF_DataTransferObject\Client\23_WCF_Data_Transfer_Object.Client.csproj", "{54E732F1-ADF0-471A-9A23-CD0F9B879C26}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FA6B4F1B-562C-42E4-9891-07FE3506BC63} = {FA6B4F1B-562C-42E4-9891-07FE3506BC63}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "23_WCF_Data_Transfer_Object.SharedLibrary", "Lessons\23_WCF_DataTransferObject\SharedLibrary\23_WCF_Data_Transfer_Object.SharedLibrary.csproj", "{2DA3B7B6-7F8C-407C-8AAE-5F19312D5BE6}"
 EndProject
